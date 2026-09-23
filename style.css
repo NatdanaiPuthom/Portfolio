@@ -180,6 +180,7 @@ section {
   display: flex;
   gap: 2rem;
   align-items: flex-start;
+  position: relative;
 }
 
 .card.expanded img {
@@ -191,11 +192,18 @@ section {
 
 .card.expanded .card-body {
   flex: 1;
+  padding-bottom: 3rem;
 }
 
 .card.expanded .card-details {
   max-height: none;
   overflow: visible;
+}
+
+.card.expanded .expand-btn {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
 }
 
 .expand-btn {
