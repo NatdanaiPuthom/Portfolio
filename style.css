@@ -104,21 +104,33 @@ section {
 #hero {
   min-height: 90vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  gap: 3rem;
+  text-align: left;
 }
 
-#hero p {
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text p {
   font-size: 1.25rem;
   margin-top: 1rem;
+}
+
+.hero-img {
+  max-height: 70vh;
+  width: auto;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
 /* ---------- Projects ---------- */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(220px, auto);
   gap: 1.5rem;
 }
 
@@ -137,6 +149,63 @@ section {
 
 .card p {
   margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.card-body {
+  flex: 1;
+}
+
+.card-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.card-details p {
+  margin-bottom: 0.75rem;
+}
+
+.card.expanded {
+  grid-column: 1 / -1;
+  grid-row: span 3;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.card.expanded img {
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.card.expanded .card-body {
+  flex: 1;
+}
+
+.card.expanded .card-details {
+  max-height: none;
+  overflow: visible;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  padding: 0;
   font-size: 0.95rem;
 }
 
@@ -193,12 +262,17 @@ section {
   #navMenu.open {
     display: flex;
   }
-}
 
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 1rem;
+  #hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-img {
+    max-height: 40vh;
+  }
 }
